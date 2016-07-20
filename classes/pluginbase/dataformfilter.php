@@ -648,6 +648,10 @@ class dataformfilter {
             if ($states = $filter->states) {
                 $this->states = $this->get_unique_list($this->states, $states);
             }
+            // Set page
+            if ($page = $filter->page) {
+                $this->page = $page;
+            }
         }
     }
 
