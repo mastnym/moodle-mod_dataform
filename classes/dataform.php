@@ -333,6 +333,11 @@ class mod_dataform_dataform {
         $urlparams['d'] = $this->id;
         // Get the edit mode.
         $urlparams['edit'] = optional_param('edit', -1, PARAM_BOOL);
+        // if page is set, leave it in url
+        // to get baack to same page when changing lang
+        if ($page = optional_param('page', 0, PARAM_INT)){
+            $urlparams['page'] = $page;
+        }
 
         // MANAGER.
         $manager = has_capability('mod/dataform:managetemplates', $this->context);
