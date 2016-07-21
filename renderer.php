@@ -1235,7 +1235,10 @@ class mod_dataform_dataformview_renderer extends plugin_renderer_base {
 
         $filter = $view->get_filter();
         $baseurl = $view->get_baseurl();
-
+        //remove id when clicking on paging bar
+        if ($baseurl->get_param("eids")!==null){
+            $baseurl->remove_params('eids');
+        }
         // Typical groupby, one group per page case. show paging bar as per number of groups.
         if ($filter->pagenum) {
             $pagingbar = new paging_bar($filter->pagenum,
