@@ -730,8 +730,8 @@ class dataformfilter {
      * @return array
      */
     private function get_unique_list($items1, $items2, $sort = SORT_NUMERIC) {
-        $list1 = is_array($items1) ? $items1 : explode(',', $items1);
-        $list2 = is_array($items2) ? $items2 : explode(',', $items2);
+        $list1 = array_filter(is_array($items1) ? $items1 : explode(',', $items1));
+        $list2 = array_filter(is_array($items2) ? $items2 : explode(',', $items2));
         return array_values(array_unique(array_merge($list1, $list2), $sort));
     }
 
